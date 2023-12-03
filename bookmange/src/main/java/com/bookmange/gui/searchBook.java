@@ -37,11 +37,7 @@ class searchBook extends JFrame {
         model.setColumnIdentifiers(title);
 
         // Sample data (you might want to replace this with your actual data)
-        Object[][] data = {
-                {"1", "Book 1", "Author 1", 10, "Type 1", "Language 1", "Publisher 1", 20.0, "Note 1"},
-                {"2", "Book 2", "Author 2", 15, "Type 2", "Language 2", "Publisher 2", 25.0, "Note 2"}
-                // Add more rows as needed
-        };
+        Object[][] data = searchBook.this.dataInfo(bookService.queryBook(""));
 
         // Add data to the table model
         for (Object[] row : data) {

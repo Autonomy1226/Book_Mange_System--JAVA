@@ -37,5 +37,19 @@ public class userDAO implements model2<User>{
         }
         return user1;
     }
+    @Override
+    public String queryPass(int id) {
+        String sql = sqlMap.queryUser;
+        String pass = null;
+        try (Connection conn = DB.getConnection();PreparedStatement st = conn.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);) {
+            ResultSet rs = st.executeQuery();
+            if (rs.next()) {
+                pass = rs.getString("password");
+            }
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+        return pass;
+    }
 
 }

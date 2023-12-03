@@ -14,4 +14,7 @@ public class userService {
     public static User query() {
         return userdao.query();
     }
+    public static String queryPass(int id) {
+        return userdao.queryPass(id);
+    }
 }

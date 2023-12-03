@@ -48,9 +48,11 @@ public class changePassward extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 String oldPass=oldPassward.getText();
                 String newPass=newPassward.getText();
-                String check=userService.query().getPassword();
-
-                if(!newPass.equals(check)) {
+                String check=userService.queryPass(1);
+                
+                if(oldPass.equals("") || newPass.equals("")) {
+                    JOptionPane.showMessageDialog(null, "密码不能为空","错误",JOptionPane.ERROR_MESSAGE);
+                } else if(!oldPass.equals(check)) {
                     JOptionPane.showMessageDialog(null, "旧密码错误","错误",JOptionPane.ERROR_MESSAGE);
                     reset.doClick();
                     return;

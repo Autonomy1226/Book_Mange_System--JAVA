@@ -6,4 +6,6 @@ public interface model2<T> {
     
     //查询用户
     public T query();
+    //查询密码
+    public String queryPass(int id);
 }
