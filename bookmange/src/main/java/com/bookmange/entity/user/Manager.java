@@ -1,4 +1,5 @@
-package main.java.com.bookmange.entity.user;
+package com.bookmange.entity.user;
+
 public class Manager extends VIPUser {
     private final int power=MANAGER;
 

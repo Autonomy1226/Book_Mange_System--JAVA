@@ -1,4 +1,4 @@
-package main.java.com.bookmange.entity.user;
+package com.bookmange.entity.user;
 
 public class VIPUser extends User {
     private final int power=VIPUSER;

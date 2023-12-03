@@ -1,4 +1,4 @@
-package main.java.com.bookmange.dao.model;
+package com.bookmange.dao.model;
 
 import java.util.List;
 

@@ -1,5 +1,4 @@
-package main.java.com.bookmange.entity.user;
-
+package com.bookmange.entity.user;
 public class User implements UserPower {
     private final int power = USER;
     private int id;

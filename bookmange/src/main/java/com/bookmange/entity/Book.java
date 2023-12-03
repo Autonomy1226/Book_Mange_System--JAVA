@@ -1,4 +1,4 @@
-package main.java.com.bookmange.entity;
+package com.bookmange.entity;
 
 import java.util.Objects;
 

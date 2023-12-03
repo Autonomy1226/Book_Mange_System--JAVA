@@ -1,4 +1,4 @@
-package main.java.com.bookmange.entity.user;
+package com.bookmange.entity.user;
 
 public interface UserPower {
     final static int SUPERMANAGER=10;

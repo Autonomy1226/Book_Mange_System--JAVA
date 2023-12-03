@@ -1,4 +1,4 @@
-package main.java.com.bookmange.entity.user;
+package com.bookmange.entity.user;
 public class SuperManager extends Manager {
     private final int power=SUPERMANAGER;
 

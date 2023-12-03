@@ -1,4 +1,4 @@
-package main.java.com.bookmange.util;
+package com.bookmange.util;
 
 import javax.swing.*;
 

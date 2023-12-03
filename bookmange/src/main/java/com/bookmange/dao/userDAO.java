@@ -1,21 +1,21 @@
-package main.java.com.bookmange.dao;
+package com.bookmange.dao;
+
+import com.bookmange.util.sqlMap;
+import com.bookmange.util.DB;
 
 import java.sql.*;
 
-import main.java.com.bookmange.dao.model.model2;
-import main.java.com.bookmange.entity.user.*;
-import main.java.com.bookmange.util.sqlMap;
-import main.java.com.bookmange.util.DB;
+import com.bookmange.dao.model.model2;
+import com.bookmange.entity.user.*;
+
 
 public class userDAO implements model2<User>{
     @Override
-    public void update(User user) {
-        try {
-            String sql = sqlMap.updateUserPassword;
-            Connection conn = DB.getConnection();
-            PreparedStatement st = conn.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
-            st.setString(1, user.getPassword());
-            st.execute(sql);
+    public void update(String newPass) {
+        String sql = sqlMap.updateUserPassword;
+        try (Connection conn = DB.getConnection();PreparedStatement st = conn.prepareStatement(sql);){
+            st.setString(1, newPass);
+            st.execute();
         } catch(Exception e) {
             e.printStackTrace();
         }
@@ -24,9 +24,7 @@ public class userDAO implements model2<User>{
     public User query() {
         User user1=null;
         String sql = sqlMap.queryUser;
-        try {
-            Connection conn = DB.getConnection();
-            PreparedStatement st = conn.prepareStatement(sql);
+        try (Connection conn = DB.getConnection();PreparedStatement st = conn.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);){
             ResultSet rs = st.executeQuery();
             if(rs.next()) {
                 user1 = new User();

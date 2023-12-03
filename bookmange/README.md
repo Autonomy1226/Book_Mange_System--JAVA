@@ -1,18 +1,17 @@
-## Getting Started
+运行环境为java 8以上
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+必须要安装MySQL数据库使用
 
-## Folder Structure
+登录mysql后使用 *source book.sql* 导入数据库
 
-The workspace contains two folders by default, where:
+运行App.java
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+用户名:root
+密码:root
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+添加用户功能暂时阉割了,暂且只能给后台使用
+欢迎交流学习
+后续闲了可能会写吧,,,,
+第一次写在包路径配置上遇见了不少麻烦
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
-
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+部分代码参考了https://github.com/bjzt/BookManageSystem 一个更完整的系统

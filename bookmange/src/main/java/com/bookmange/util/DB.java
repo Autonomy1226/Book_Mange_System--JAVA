@@ -1,4 +1,4 @@
-package main.java.com.bookmange.util;
+package com.bookmange.util;
 
 import java.sql.*;
 import java.util.Locale;
@@ -8,16 +8,15 @@ public class DB {
     static String ip;
     static int port=3036;
     static String db;
-    static String userName;
+    static String username;
     static String password;
     static String encoding;
 
     static {
         ResourceBundle resource = ResourceBundle.getBundle("database", Locale.getDefault());
         ip = resource.getString("host");
-        port = Integer.parseInt(resource.getString("port"));
         db = resource.getString("database");
-        userName = resource.getString("username");
+        username = resource.getString("username");
         password = resource.getString("password");
         encoding = resource.getString("encoding");
 
@@ -29,9 +28,9 @@ public class DB {
             e.printStackTrace();
         }
     }
-        public static Connection getConnection() throws SQLException {
-            String url = String.format("jdbc:mysql://%s/%s?characterEncoding=%s", ip, db, encoding);
-            return DriverManager.getConnection(url, userName, password);
-        }
+    public static Connection getConnection() throws SQLException {
+        String url = String.format("jdbc:mysql://%s/%s?characterEncoding=%s&useSSL=false", ip, db, encoding);
+        return DriverManager.getConnection(url, username, password);
     }
+}
 

@@ -1,9 +1,9 @@
-package main.java.com.bookmange.util;
+package com.bookmange.util;
 
-import main.java.com.bookmange.dao.userDAO;
-import main.java.com.bookmange.entity.Book;
-import main.java.com.bookmange.entity.user.*;
-import main.java.com.bookmange.service.*;
+import com.bookmange.dao.userDAO;
+import com.bookmange.entity.Book;
+import com.bookmange.entity.user.*;
+import com.bookmange.service.*;
 import java.util.List;
 
 import javax.swing.*;
@@ -46,7 +46,11 @@ public class PanelUtil {
      * @return 这个用户的信息类，如果不匹配 返回值为空
      */
     public static boolean getThisUser(String userName,String password){
-        if (userName.equals("root")&&password.equals("root")){
+        User user1 = new User();
+        user1=userService.query();
+        String rightPass=user1.getPassword();
+        String rightName=user1.getUserName();
+        if (userName.equals(rightName)&&password.equals(rightPass)){
             return true;
         }
         
