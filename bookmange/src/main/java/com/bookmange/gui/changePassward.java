@@ -21,7 +21,7 @@ public class changePassward extends JFrame {
         this.setLayout(new FlowLayout());
         this.setVisible(true);
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        this.setBounds(500,200,450,400);
+        this.setBounds(500,200,450,200);
     }
     private void init()
     {

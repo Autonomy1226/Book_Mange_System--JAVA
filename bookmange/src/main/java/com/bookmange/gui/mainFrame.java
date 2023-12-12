@@ -12,7 +12,7 @@ public class mainFrame extends JFrame{
     public  mainFrame(){
         init();
         this.setTitle("图书管理系统 ");
-        this.setSize(800,500);
+        this.setBounds(250,130,800,500);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
     }
@@ -47,7 +47,7 @@ public class mainFrame extends JFrame{
         c.add(FoldableMenuBar.getFoldableMenuBar(),BorderLayout.NORTH);
     } //增加内容面板
     public void addContentPanel(){
-        String imagePath="D:\\develop\\BookManagerSystem\\target\\bg.jpg";
+        String imagePath="bookmange\\src\\main\\resources\\img.png";
         initial_panel imagepanel =new initial_panel(imagePath);
         this.add(imagepanel, BorderLayout.CENTER);
         this.pack();

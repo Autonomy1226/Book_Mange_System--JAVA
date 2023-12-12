@@ -39,7 +39,7 @@ public class addBook extends JFrame{
 
         JLabel typeName = new JLabel("图书类型：");
         typeName.setBounds(300,20,70,25);
-        String [] types = {"计算机科学","人文自然","旅游地理","各国语言"};
+        String [] types = {" ","计算机科学","人文自然","旅游地理","各国语言"};
         bookType = new JComboBox<>(types);
         bookType.setBounds(370,20,100,25);
         bookTypeBox=new JTextField();
@@ -62,15 +62,15 @@ public class addBook extends JFrame{
 
         JLabel language = new JLabel("语种：");
         language.setBounds(450,100,70,25);
-        String []lts = {"中文","英语","阿拉伯语","法语","俄语","..."};
+        String []lts = {" ","中文","英语","阿拉伯语","法语","俄语","..."};
         languageType = new JComboBox<>(lts);
-        languageType.setBounds(490,100,70,25);
+        languageType.setBounds(490,100,90,25);
         languageTypeBox=new JTextField();
-        languageTypeBox.setBounds(560,100,65,25);
+        languageTypeBox.setBounds(580,100,65,25);
 
         JLabel bookConcernLab = new JLabel("选择出版社：");
         bookConcernLab.setBounds(30,140,90,25);
-        String[] temp = {"清华大学出版社","北京大学出版社","吉林大学出版社","商务出版社","..."};
+        String[] temp = {" ","清华大学出版社","北京大学出版社","吉林大学出版社","商务出版社","..."};
         bookConcern = new JComboBox<>(temp);
         bookConcern.setBounds(120,140,120,25);
         Concern=new JTextField();
@@ -138,6 +138,7 @@ public class addBook extends JFrame{
                 }
                 else{
                     Book book = new Book();
+                    book.setId(Integer.parseInt(bookNumber.getText()));
                     book.setBookName(bookName.getText());
                     book.setBooksType(bookTypeBox.getText());
                     book.setAuthorName(author.getText());
@@ -155,7 +156,7 @@ public class addBook extends JFrame{
         @Override
         public void actionPerformed(ActionEvent e) {
             bookNumber.setText("");
-            
+            booksNameValue.setText("");
             bookName.setText("");
             bookTypeBox.setText("");
             languageTypeBox.setText("");
@@ -166,5 +167,22 @@ public class addBook extends JFrame{
             remark.setText("");
         }
     });
+    bookConcern.addActionListener(comboBoxAction);
+    bookType.addActionListener(comboBoxAction);
+    languageType.addActionListener(comboBoxAction);
     }
+    ActionListener comboBoxAction = new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            if (e.getSource()==bookConcern){
+                Concern.setText((String)bookConcern.getSelectedItem());
+            }
+            if (e.getSource()==languageType){
+                languageTypeBox.setText((String)languageType.getSelectedItem());
+            }
+            if (e.getSource()==bookType){
+                bookTypeBox.setText((String)bookType.getSelectedItem());
+            }
+        }
+    };
 }

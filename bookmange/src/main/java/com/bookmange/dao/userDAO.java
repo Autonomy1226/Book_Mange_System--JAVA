@@ -51,5 +51,4 @@ public class userDAO implements model2<User>{
         }
         return pass;
     }
-
 }

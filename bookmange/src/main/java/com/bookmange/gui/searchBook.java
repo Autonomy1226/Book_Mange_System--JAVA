@@ -12,6 +12,7 @@ import java.util.ArrayList;
 
 
 class searchBook extends JFrame {
+    private JLabel label;
     private JTextField searchBox;
     private JButton search;
     private JTable table;
@@ -22,13 +23,14 @@ class searchBook extends JFrame {
     public searchBook() {
         init();
         this.setVisible(true);
-        this.setBounds(200, 150, 500, 500);
+        this.setBounds(200, 150, 700, 500);
         this.setLayout(null);
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setTitle("正在查询图书...");
     }
 
     private void init() {
+        label=new JLabel("请输入书名：");
         searchBox = new JTextField(10);
         search = new JButton("搜索");
 
@@ -51,13 +53,18 @@ class searchBook extends JFrame {
 
         // Add components to the panel
         JPanel panel = new JPanel(null);
+        
+        //设置表格每个格高度
+        table.setRowHeight (25);
 
         // 设置组件的位置和大小
-        searchBox.setBounds(10, 10, 150, 30);
-        search.setBounds(170, 10, 80, 30);
-        scrollPane.setBounds(10, 50, 460, 300);
+        label.setBounds(10,10,90,30);
+        searchBox.setBounds(90, 10, 150, 30);//10
+        search.setBounds(250, 10, 80, 30);//170
+        scrollPane.setBounds(10, 50, 660, 300);
 
         // 将组件添加到面板
+        panel.add(label);
         panel.add(searchBox);
         panel.add(search);
         panel.add(scrollPane);

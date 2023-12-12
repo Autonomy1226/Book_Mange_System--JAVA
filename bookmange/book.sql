@@ -14,7 +14,7 @@ CREATE TABLE `user` (
 insert into `user`(`id`,`username`,`password`,`power`) values (1,'root','root',10);
 
 CREATE TABLE `book` (
-  `id` int(11) NOT NULL auto_increment,
+  `id` int(11) NOT NULL ,
   book_name varchar(50) default NULL,
   book_author varchar(50) default NULL,
   book_number int ,

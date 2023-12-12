@@ -33,21 +33,22 @@ public class bookDAO implements model1<Book>{
     public void add(Book book) {
         String sql=sqlMap.add;
         try (Connection conn = DB.getConnection();PreparedStatement st = conn.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);){
-            st.setString(1,book.getBookName());
-            st.setString(2,book.getAuthorName());
-            st.setInt(3,book.getBookNumber());
-            st.setString(4,book.getBooksType());
-            st.setString(5,book.getBookConcern());
-            st.setString(6,book.getLanguageType());
-            st.setDouble(7, book.getMoney());
-            st.setString(8, book.getRemark());
+            st.setInt(1,book.getId());
+            st.setString(2,book.getBookName());
+            st.setString(3,book.getAuthorName());
+            st.setInt(4,book.getBookNumber());
+            st.setString(5,book.getBooksType());
+            st.setString(6,book.getBookConcern());
+            st.setString(7,book.getLanguageType());
+            st.setDouble(8, book.getMoney());
+            st.setString(9, book.getRemark());
             st.execute();
 
-            ResultSet rs=st.getGeneratedKeys();
+            /*ResultSet rs=st.getGeneratedKeys();
             if(rs.next()) {
                 int id = rs.getInt(1);
                 book.setId(id);
-            }
+            }*/
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -59,8 +60,10 @@ public class bookDAO implements model1<Book>{
         String sql=sqlMap.deleteById + id;
         try(Connection conn=DB.getConnection();
             PreparedStatement st=conn.prepareStatement(sql);) {
-            st.execute();            
-            return true;
+            /*st.execute();
+            return true;*/
+            int row = st.executeUpdate();
+            return row > 0;
         } catch(Exception e) {
             e.printStackTrace();
             return false;
